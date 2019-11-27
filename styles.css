@@ -34,9 +34,13 @@ body
      display:flex;
      flex-direction:column;
      width:100%;
-     min-height:100vh;
+     
      max-width:90em;
      padding:5rem 2em 3rem;
+}
+.container__fullheight
+{
+     min-height:100vh;
 }
 .container__map
 {
