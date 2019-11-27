@@ -5,7 +5,7 @@ Ahmed Al Hasani, Alex Costinescu, and Pratik Revankar
 <br />
 
 <h2>How to Run</h2>
-<p>The links to each visualization can be found here: </p>
+<p>The links to each visualization can be found here: <a href="https://info-4602-5602.github.io/project-2-wikiart-ahmed_alex_pratik_project2/">https://info-4602-5602.github.io/project-2-wikiart-ahmed_alex_pratik_project2/</a></p>
 
 <br />
 <br />
