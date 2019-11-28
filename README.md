@@ -23,10 +23,7 @@ Ahmed Al Hasani, Alex Costinescu, and Pratik Revankar
 <br />
 
 <h3>Negative vs. Positing Painting Scores</h3>
-The visualization “positive vs negative scores” is a bubble plot, where each bubble represents an artwork. The total positive and negatives scores are based on scores given for each column (e.g. love, sadness, happiness) by respondents. There are three ways to view how the scores vary which include:
-•	By Style
-•	By Category
-•	By “Face or body”
+The visualization “positive vs negative scores” is a bubble plot, where each bubble represents an artwork. The total positive and negatives scores are based on scores given for each column (e.g. love, sadness, happiness) by respondents. There are three ways to view how the scores vary which include: By Style, By Category, By “Face or body”
 
 Each selected option, the bubble’s colors will change to show how the bubbles are clustered for each option. The first and third option have 6 and 3 unique values, hence, its easy to visualize the clusters. The second option has 44 unique values, hence 44 clusters. This is difficult to visualize, but we added an interactive tool to help reading the plot which we will address below. For example, for the “face or body”, we can see that the face bubbles (artwork with faces) invoke stronger emotions, where users reported a total of positive/negative scores more than 1.0, whereas for body artwork, users reported weaker emotions. 
 <br />
@@ -53,7 +50,21 @@ Each selected option, the bubble’s colors will change to show how the bubbles 
 <br />
 
 <h3>Negative vs. Positing Painting Scores</h3>
+We wanted to show how bubbles are clustered for each option. For instance, for the first option “Style”, would different styles invoke emotions differently? Hence, would Renaissance Art would invoke stronger emotions than Modern Art? Would a certain style or sub option under the three options listed above vary in how negative/positive emotions are invoked in viewers? 
 
+We wanted to build a visualization tool to answer the question above, therefore, we deemed that a scatter plot, or a bubble plot in addition to the bubbles’ color variations would be the most suitable one to visualize the data accordingly.
+ 
+The design process was simple and minimalistic for this visualization. Based on the question, to visualize how different categories behave, we knew that the best way to uncover the dataset to answer the question is by creating a scatter plot. The plot would simply have bubbles, and each of them would have a color to reflect which group it belongs to. If bubbles with the same color are close to each other, then it must mean that the group (The particular style, or category) might invoke the same feelings across all viewers. On the other hand, if the bubbles with the same colors are dispersed across the plot, then that group may not invoke consistent emotions across all viewers. 
+
+The focal point of the viz then is to focus on the colors, and which groups are represented by which color. Additionally, to switch between one option versus another, an interactive tool must be used, hence, the plot would include a select tool provided by Bokeh. 
+
+To create the visualization tool, we utilized Bokeh because it can take a dataset (dataframe) as an input, while enabling us to create a bubble graph easily and assign colors manually for each cluster. Bokeh provides many color palettes and plot tools to include, in addition to our knowledge and experience with Python, it was the best package to leverage to create the viz. 
+
+We filtered the dataset to the interested columns that are related to the questions we asked initially that guided our design and building process. The dataset then was converted to a ColumnDataSource Object, this is a necessary step for Bokeh to create interactive plots, because the tools incorporated will need to reference a data source to index correctly to the requested information by the viewer. 
+
+The hover tool will reference each bubble’s positive and negative scores, the title name, and the category it belongs to. The tap tool will reference the bubble’s group to mute other clusters. The select tool will reference the viewing option. This is possible because we created a dictionary that maps to the right ColumnDataSource object. The dictionary contains three entries, each entry’s key is the name of the viewing option, and the values are the ColumnDataSource objects. 
+
+Refining the visualization tool was restricted to the plot’s bubble and text size mainly. We tested different values to make sure the overall plot’s look was legible and visually appealing. 
 
 <br />
 <br />
