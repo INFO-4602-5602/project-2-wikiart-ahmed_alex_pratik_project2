@@ -153,7 +153,7 @@
 		</header>
 		<div style="padding:5rem 2rem 3rem; width:100%;">
 			<div class="painting" style="display:flex">
-				<div class="filters">
+				<div class="info">
 					<div class="filter--group">
 						<strong>Title: </strong>
 						<select id="selectPainting"></select>
@@ -352,7 +352,7 @@
 				document.getElementById('title').innerHTML = painting.Title;
 				document.getElementById('artist').innerHTML = painting.Artist;
 				document.getElementById('artist').onclick = function () { openInNewTab(painting.artistURL); };
-				document.getElementById('otherWork').innerHTML = "other famous artwork by <strong>" + painting.Artist + "</strong>";
+				document.getElementById('otherWork').innerHTML = "Other famous artwork by <strong>" + painting.Artist + "</strong>";
 				document.getElementById('year').innerHTML = painting.Year;
 				document.getElementById('category').innerHTML = painting.Category;
 				document.getElementById('style').innerHTML = painting.Style;
