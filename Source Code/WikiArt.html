@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/ >
+		<title>WikiArt Emotion Ratings</title>
+
+		<!-- D3.js -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+
+		<style>
+			body {
+				font-family: "Lucida Bright",Georgia,serif;
+				font-size: 11px;
+				font-weight: 300;
+				fill: #242424;
+				text-align: center;
+				text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
+				cursor: default;
+			}
+			.legend {
+				font-family: 'Courier', monospace;
+				fill: #333333;
+			}
+			.tooltip {
+				fill: #333333;
+			}
+			#artwork {
+				position:absolute;
+			  display: block;
+				margin-left: 3%;
+				margin-right: 3%;
+			  width: 375px;
+			  height: 275px;
+				object-fit: contain;
+				z-index: 2;
+
+				border: 1px solid #ddd;
+			  border-radius: 4px;
+			  padding: 5px;
+			}
+			#artwork:hover {
+			  box-shadow: 0 0 5px 3px rgb(255,215,0,0.5);
+			}
+			#artwork-border {
+				position:absolute;
+				margin-left: -15.4%;
+				margin-top: -1.8%;
+				width: 440px;
+			  height: 340px;
+				z-index: 1;
+			}
+			#loading {
+				position:absolute;
+				margin-left: 11.5%;
+				margin-top: 4.5%;
+			  display: block;
+			  width: 150px;
+			  height: 150px;
+				object-fit: contain;
+				z-index: 1;
+			}
+
+			.painting {
+				margin: 3% 0 2% 0;
+				width: 100%;
+				height: 305px;
+			}
+			.filters {
+				width: 33.33%;
+			}
+			.image {
+				width: 33.33%;
+			}
+			.info {
+				width: 33.33%;
+				width: 350px;
+				height: 250px;
+				margin-left: auto;
+				margin-right: auto;
+				border: 1px solid lightgrey;
+				border-radius: 4px;
+				background-color: rgba(224,224,224,0.2);
+			}
+			#selectPainting, #similarPainting {
+				width: 250px;
+			}
+			.rating {
+				margin-top: 1%;
+				width: 100%;
+				color: #5086de;
+			}
+			.relatedWork {
+				width: 350px;
+				height: 150px;
+				margin-top: 5%;
+				margin-left: auto;
+				margin-right: auto;
+				border: 1px solid lightgrey;
+				border-radius: 4px;
+			}
+
+			span {
+	      cursor:pointer;
+	      color:blue;
+		 	}
+			#title {
+				width: 75%;
+				margin-left:auto;
+    		margin-right:auto;
+			}
+			#meanRating {
+				font-weight: bold;
+				font-size: 18px;
+			}
+			table {
+				font-size: 15px;
+				margin-left:auto;
+    		margin-right:auto;
+				text-align: left;
+			}
+			.artInfo td {
+				padding-left: 20px;
+			}
+			.rating h2 {
+				margin-bottom: -3%;
+			}
+
+		</style>
+
+	</head>
+	<body>
+		<div style="display:block">
+			<div class="painting" style="display:flex">
+				<div class="filters">
+					<table>
+						<tr>
+						<td><h4>Title: </h4></td>
+						<td><select id="selectPainting"></select></td>
+						</tr>
+					</table>
+					<div class="relatedWork">
+						<p id="otherWork"></p>
+						<select id="similarPainting"></select>
+					</div>
+				</div>
+				<div class="image">
+					  <img id="artwork" src="">
+						<img id="artwork-border" src="frame3.jpg">
+						<img id="loading" src="loading.gif">
+				</div>
+				<div class="info">
+					<h2 id="title"></h2>
+					<span><h3 id="artist"></h3></span>
+					<table class="artInfo">
+						<tr>
+						<td colspan='3'>Year :</td>
+						<td colspan='3' id="year" style="font-weight:bold"></td>
+						</tr>
+						<tr>
+						<td colspan='3'>Style :</td>
+						<td colspan='3' id="style"></td>
+						</tr>
+						<tr>
+						<td colspan='3'>Category :</td>
+						<td colspan='3' id="category"></td>
+						</tr>
+					</table>
+					</br>
+					</br>
+					<table>
+						<tr>
+						<td colspan='3' style="font-color:#333837">Mean Rating :</td>
+						<td colspan='3' id="meanRating"></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+
+			<div class="rating" style="display:flex">
+				<div>
+					<h2>Positive</h2>
+					<div class="postiveRating"></div>
+				</div>
+				<div>
+					<h2>Negative</h2>
+					<div class="negativeRating"></div>
+				</div>
+				<div>
+					<h2>Other or Mixed</h2>
+					<div class="otherRating"></div>
+				</div>
+			</div>
+		</div>
+		<script src="radarChart.js"></script>
+
+		<script>
+
+			var margin = {top: 100, right: 100, bottom: 100, left: 100},
+			chartWidth = Math.min(475, window.innerWidth - 10) - margin.left - margin.right;
+			chartHeight = Math.min(475, window.innerHeight - margin.top - margin.bottom - 20);
+
+			var radarChartOptions = {
+			  w: chartWidth,
+			  h: chartHeight,
+			  margin: margin,
+			  maxValue: 0.1,
+			  levels: 4,
+			  roundStrokes: true,
+			  color: "#EDC951"
+			};
+
+			var paintings = [];
+
+			d3.csv("WikiArtClean.csv", function(error, data) {
+			  if (error) throw error;
+
+			  // Loop through the data and convert the numeric columns to numbers
+			  data.forEach(function(d){
+					if (d['Is painting'] == 'yes'){
+						painting = {}
+						painting.Style = d.Style;
+						painting.Category = d.Category;
+						painting.Artist = d.Artist;
+						painting.Title = d.Title;
+						painting.Year = d.Year;
+						painting.imageURL = d['Image URL'];
+						painting.infoURL = d['Painting Info URL'];
+						painting.artistURL = d['Artist Info URL'];
+						painting.fORb = d['Face or body'];
+						painting.meanRating = +d['Mean rating'];
+
+						// categorize emtion ratings as positive, negative and other
+						painting.positiveRating = [[
+							{axis:'Gratitude',value:+d.Gratitude},
+							{axis:'Happiness',value:+d.Happiness},
+							{axis:'Humility',value:+d.Humility},
+							{axis:'Love',value:+d.Love},
+							{axis:'Optimism',value:+d.Optimism},
+							{axis:'Trust',value:+d.Trust}
+						]];
+						painting.negativeRating = [[
+							{axis:'Anger',value:+d.Anger},
+							{axis:'Arrogance',value:+d.Arrogance},
+							{axis:'Disgust',value:+d.Disgust},
+							{axis:'Fear',value:+d.Fear},
+							{axis:'Pessimism',value:+d.Pessimism},
+							{axis:'Regret',value:+d.Regret},
+							{axis:'Sadness',value:+d.Sadness},
+							{axis:'Shame',value:+d.Shame}
+						]];
+						painting.otherRating = [[
+							{axis:'Agreeableness',value:+d.Agreeableness},
+							{axis:'Anticipation',value:+d.Anticipation},
+							{axis:'Disagreeableness',value:+d.Disagreeableness},
+							{axis:'Surprise',value:+d.Surprise},
+							{axis:'Shyness',value:+d.Shyness},
+							{axis:'Neutral',value:+d.Neutral}
+						]];
+					}
+					paintings.push(painting);
+
+			  });
+				// initialise to random painting
+				var item = Math.floor(Math.random()*paintings.length);
+				var initialPainting = paintings[item];
+	      setFilter(initialPainting);
+				setRelatedFilter(initialPainting);
+				showData(initialPainting);
+			});
+
+			// Handler for dropdown value change
+      var dropdownChange = function() {
+          var title = d3.select(this).property('value');
+					const idx = paintings.map(e => e.Title).indexOf(title);
+          newPainting = paintings[idx];
+					setRelatedFilter(newPainting);
+          showData(newPainting);
+      };
+
+			function setFilter(painting) {
+				// filter for all paintings
+	      var searchTitle = d3.select("#selectPainting")
+	          						 .on("change", dropdownChange);
+
+				paintings.sort(GetSortOrder("Title"));
+				paintings = Array.from(new Set(paintings));
+
+	      searchTitle.selectAll("option")
+	          .data(paintings)
+	        	.enter().append("option")
+	          .attr("value", function (d) { return d.Title; })
+	          .text(function (d) {
+	              return d.Title;
+	          })
+						.property("selected", function(d){ return d.Title === painting.Title; });
+			}
+
+			function setRelatedFilter(painting){
+				// filter for related paintings
+				relatedTitle = d3.select("#similarPainting")
+												 .on("change", dropdownChange);
+				relatedTitle.selectAll("option").remove();
+				var otherWork = paintings.filter(function (e) {
+						return e.Artist == painting.Artist;
+				});
+
+				otherWork.sort(GetSortOrder("Title"));
+				otherWork = Array.from(new Set(otherWork));
+
+				relatedTitle.selectAll("option")
+						.data(otherWork)
+						.enter().append("option")
+						.attr("value", function (d) { return d.Title; })
+						.text(function (d) {
+								return d.Title;
+						})
+						.property("selected", function(d){ return d.Title === painting.Title; });
+			}
+
+			function showData(painting){
+				radarChartOptions.color = "#00A0B0";
+				RadarChart(".postiveRating", painting.positiveRating, radarChartOptions);
+				radarChartOptions.color = "#CC333F";
+				RadarChart(".negativeRating", painting.negativeRating, radarChartOptions);
+				radarChartOptions.color = "#EDC951";
+				RadarChart(".otherRating", painting.otherRating, radarChartOptions);
+
+				// remove old image
+				document.getElementById('artwork').src = "";
+				// add image
+				document.getElementById('artwork').src = painting.imageURL;
+				document.getElementById('artwork').onclick = function () { openInNewTab(painting.infoURL); };
+				// add info
+				document.getElementById('title').innerHTML = painting.Title;
+				document.getElementById('artist').innerHTML = painting.Artist;
+				document.getElementById('artist').onclick = function () { openInNewTab(painting.artistURL); };
+				document.getElementById('otherWork').innerHTML = "other famous artwork by <strong>" + painting.Artist + "</strong>";
+				document.getElementById('year').innerHTML = painting.Year;
+				document.getElementById('category').innerHTML = painting.Category;
+				document.getElementById('style').innerHTML = painting.Style;
+				document.getElementById('meanRating').innerHTML = painting.meanRating;
+			}
+
+			// open hyperlinks in new tab
+			function openInNewTab(url) {
+			  var win = window.open(url, '_blank');
+			  win.focus();
+			}
+			// sort painting by Title
+			function GetSortOrder(prop) {
+				return function(a, b) {
+					if (a[prop] > b[prop]) {
+						return 1;
+					}
+					else if (a[prop] < b[prop]) {
+						return -1;
+					}
+					return 0;
+				}
+			}
+
+		</script>
+	</body>
+</html>
