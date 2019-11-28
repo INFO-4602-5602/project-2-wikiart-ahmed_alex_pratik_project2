@@ -333,7 +333,7 @@
 				// remove old image
 				document.getElementById('artwork').src = "";
 				// add image
-				document.getElementById('artwork').src = painting.imageURL;
+				document.getElementById('artwork').src = painting.imageURL.replace("https", "http");
 				document.getElementById('artwork').onclick = function () { openInNewTab(painting.infoURL); };
 				// add info
 				document.getElementById('title').innerHTML = painting.Title;
