@@ -182,14 +182,33 @@ Hence the final dataset before creating the plot contains the positive and negat
 <br />
 
 <h3>Negative vs. Positing Painting Scores</h3>
-
+<ul>  
+  <li>Style</li>
+  <li>Category</li>
+  <li>Face or body</li>
+  <li>Gratitude</li>
+  <li>Happiness</li>
+  <li>Love</li>
+  <li>Humility</li>
+  <li>Trust</li>
+  <li>Optimism</li>
+  <li>Pessimism</li>
+  <li>Sadness</li>
+  <li>Shame</li>
+  <li>Anger</li>
+  <li>Arrogance</li>
+  <li>Disgust</li>
+ <li>Fear</li>
+ <li>Regret</li>
+</ul>
+<p> The type of data attributes used consisted of both categorical and quantitative data.</p>
 <br />
 <br />
 
 <h2>Team Member Roles</h2>
 
 <ul>
-  <li><strong>Ahmed:</strong></li>
+  <li><strong>Ahmed:Negative vs. Positing Painting Scores</strong></li>
   <li><strong>Pratik:</strong> Created <em>WikiArt Emotion Ratings</em> and documentation.</li>
   <li><strong>Alex:</strong> Created <em>Mean User Ratings for Painting Styles Over Time</em> visualization and documentation/HTML pages.</li>
 </ul>
