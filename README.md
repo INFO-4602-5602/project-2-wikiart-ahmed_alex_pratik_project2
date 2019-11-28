@@ -18,6 +18,44 @@ Ahmed Al Hasani, Alex Costinescu, and Pratik Revankar
 <br />
 
 <h3>Negative vs. Positing Painting Scores</h3>
+Viz Information
+The visualization “positive vs negative scores” is a bubble plot, where each bubble represents an artwork. The total positive and negatives scores are based on scores given for each column (e.g. love, sadness, happiness) by respondents. There are three ways to view how the scores vary which include:
+•	By Style
+•	By Category
+•	By “Face or body”
+
+Each selected option, the bubble’s colors will change to show how the bubbles are clustered for each option. The first and third option have 6 and 3 unique values, hence, its easy to visualize the clusters. The second option has 44 unique values, hence 44 clusters. This is difficult to visualize, but we added an interactive tool to help reading the plot which we will address below. For example, for the “face or body”, we can see that the face bubbles (artwork with faces) invoke stronger emotions, where users reported a total of positive/negative scores more than 1.0, whereas for body artwork, users reported weaker emotions. 
+
+Preprocesses
+The data wasn’t processed heavily. We summed up positive scores for positive columns and negative scores for negative columns. The positive and negative columns include:
+
+Positive: ['Gratitude', 'Happiness', 'Love', 'Humility', 'Trust', 'Optimism']
+Negative: ['Pessimism', 'Sadness', 'Shame', 'Anger', 'Arrogance', 'Disgust', 'Fear', 'Regret']
+
+In turn, we created two new columns, “total positive” and “total negative”. 
+
+Additionally, each “group” or cluster in each option, for instance, the “face” cluster and the “body” cluster in the third viewing option, is assigned a unique color. To create this, we imported various color palettes, and stored each unique color for each group in each option. Hence, each bubble (each unique data row) is assigned a color for each option, to visualize how these bubbles are clustered in each viewing option. 
+
+Hence the final dataset before creating the plot contains the positive and negative scores, three color columns (for each viewing option) and the title of the artwork so that it can be shown when the user hovers or taps a certain bubble. 
+
+Design
+We wanted to show how bubbles are clustered for each option. For instance, for the first option “Style”, would different styles invoke emotions differently? Hence, would Renaissance Art would invoke stronger emotions than Modern Art? Would a certain style or sub option under the three options listed above vary in how negative/positive emotions are invoked in viewers? 
+
+We wanted to build a visualization tool to answer the question above, therefore, we deemed that a scatter plot, or a bubble plot in addition to the bubbles’ color variations would be the most suitable one to visualize the data accordingly.
+
+Interactions
+The visualization utilizes three main interactive tools. The first is the select tool to choose which option/categories to view, the second tool is the hover tool to view more information for each bubble, and lastly the tap tool which enables viewers to toggle bubbles for each cluster under each option while muting other clusters (by hiding their colors). 
+
+Tasks
+There are several tasks that the tool allows its users to complete and they include:
+1.	Locate
+•	Find a certain group
+•	This is achieved by looking for certain clusters (using the legend and finding bubbles with the same colors), and to check/verify if that group exhibits a certain trait (if they have strong positive and negative emotions, or positive/negative emotions only).
+2.	Browse
+•	Look for interesting groups, find correlation through how closely are the bubbles located to one another in the same group or spread out. If a group’s bubbles are close to one another, then we can say its likely that the style invoked those emotions consistently across all viewers. 
+3.	Identify
+•	Find categories, style, or face/body portraits that viewers deem as a positively/negatively invoking artwork.
+•	This is achieved the same way browse is achieved, except that the viz’s users will beforehand have a particular style/category that they will attempt to locate and identify. 
 
 <br />
 <br />
