@@ -208,7 +208,7 @@ Hence the final dataset before creating the plot contains the positive and negat
 <h2>Team Member Roles</h2>
 
 <ul>
-  <li><strong>Ahmed:</strong> Negative vs. Positing Painting Scores</em></li>
+  <li><strong>Ahmed:</strong> Negative vs. Positing Painting Scores With Documentation</em></li>
   <li><strong>Pratik:</strong> Created <em>WikiArt Emotion Ratings</em> and documentation.</li>
   <li><strong>Alex:</strong> Created <em>Mean User Ratings for Painting Styles Over Time</em> visualization and documentation/HTML pages.</li>
 </ul>
