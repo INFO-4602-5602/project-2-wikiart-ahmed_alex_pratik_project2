@@ -22,7 +22,7 @@ Ahmed Al Hasani, Alex Costinescu, and Pratik Revankar
 
 <br />
 
-<h3>Negative vs. Positing Painting Scores</h3>
+<h3>Negative vs. Positive Painting Scores</h3>
 The visualization “positive vs negative scores” is a bubble plot, where each bubble represents an artwork. The total positive and negatives scores are based on scores given for each column (e.g. love, sadness, happiness) by respondents. There are three ways to view how the scores vary which include: By Style, By Category, By “Face or body”
 
 Each selected option, the bubble’s colors will change to show how the bubbles are clustered for each option. The first and third option have 6 and 3 unique values, hence, its easy to visualize the clusters. The second option has 44 unique values, hence 44 clusters. This is difficult to visualize, but we added an interactive tool to help reading the plot which we will address below. For example, for the “face or body”, we can see that the face bubbles (artwork with faces) invoke stronger emotions, where users reported a total of positive/negative scores more than 1.0, whereas for body artwork, users reported weaker emotions. 
@@ -49,7 +49,7 @@ Each selected option, the bubble’s colors will change to show how the bubbles 
 
 <br />
 
-<h3>Negative vs. Positing Painting Scores</h3>
+<h3>Negative vs. Positive Painting Scores</h3>
 We wanted to show how bubbles are clustered for each option. For instance, for the first option “Style”, would different styles invoke emotions differently? Hence, would Renaissance Art would invoke stronger emotions than Modern Art? Would a certain style or sub option under the three options listed above vary in how negative/positive emotions are invoked in viewers? 
 
 We wanted to build a visualization tool to answer the question above, therefore, we deemed that a scatter plot, or a bubble plot in addition to the bubbles’ color variations would be the most suitable one to visualize the data accordingly.
@@ -82,7 +82,7 @@ Refining the visualization tool was restricted to the plot’s bubble and text s
 
 <br />
 
-<h3>Negative vs. Positing Painting Scores</h3>
+<h3>Negative vs. Positive Painting Scores</h3>
 <p>
  Bubbles in the scatter plot represent each artwork in the dataset. Its position along the x-axis will reflect the sum total of positive emotions viewers reported, whereas its position along the y-axis will reflect how the magnitude of negative emotions viewers reported. The colors of bubbles reflect a group. Bubbles with the same colors are in the same group/cluster. When the user changes the category that is being viewed in the viz, the colors change to reflect the groups in that category. 
  </p>
@@ -96,7 +96,7 @@ Refining the visualization tool was restricted to the plot’s bubble and text s
   
 <br />
   
-<h3>Negative vs. Positing Painting Scores</h3>
+<h3>Negative vs. Positive Painting Scores</h3>
 <p>The data wasn’t processed heavily. We summed up positive scores for positive columns and negative scores for negative columns. The positive and negative columns include:
 
 Positive: ['Gratitude', 'Happiness', 'Love', 'Humility', 'Trust', 'Optimism']
@@ -125,7 +125,7 @@ Hence the final dataset before creating the plot contains the positive and negat
 
 <br />
 
-<h3>Negative vs. Positing Painting Scores</h3>
+<h3>Negative vs. Positive Painting Scores</h3>
 <p>The visualization utilizes three main interactive tools. The first is the select tool to choose which option/categories to view, the second tool is the hover tool to view more information for each bubble, and lastly the tap tool which enables viewers to toggle bubbles for each cluster under each option while muting other clusters (by hiding their colors). </p>
 <br />
 <br />
@@ -142,7 +142,7 @@ Hence the final dataset before creating the plot contains the positive and negat
 
 <br />
 
-<h3>Negative vs. Positing Painting Scores</h3>
+<h3>Negative vs. Positive Painting Scores</h3>
 1.	Locate: Find a certain group. This is achieved by looking for certain clusters (using the legend and finding bubbles with the same colors), and to check/verify if that group exhibits a certain trait (if they have strong positive and negative emotions, or positive/negative emotions only).
 
 
@@ -181,7 +181,7 @@ Hence the final dataset before creating the plot contains the positive and negat
 
 <br />
 
-<h3>Negative vs. Positing Painting Scores</h3>
+<h3>Negative vs. Positive Painting Scores</h3>
 <ul>  
   <li>Style</li>
   <li>Category</li>
@@ -208,7 +208,7 @@ Hence the final dataset before creating the plot contains the positive and negat
 <h2>Team Member Roles</h2>
 
 <ul>
-  <li><strong>Ahmed:</strong> Negative vs. Positing Painting Scores with documentation</em></li>
+  <li><strong>Ahmed:</strong> Negative vs. Positive Painting Scores with documentation</em></li>
   <li><strong>Pratik:</strong> Created <em>WikiArt Emotion Ratings</em> and documentation.</li>
   <li><strong>Alex:</strong> Created <em>Mean User Ratings for Painting Styles Over Time</em> visualization and documentation/HTML pages.</li>
 </ul>
