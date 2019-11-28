@@ -145,7 +145,11 @@ Hence the final dataset before creating the plot contains the positive and negat
 <h3>Negative vs. Positing Painting Scores</h3>
 There are several tasks that the tool allows its users to complete and they include:
 1.	Locate: Find a certain group. This is achieved by looking for certain clusters (using the legend and finding bubbles with the same colors), and to check/verify if that group exhibits a certain trait (if they have strong positive and negative emotions, or positive/negative emotions only).
+
+
 2.	Browse: Look for interesting groups, find correlation through how closely are the bubbles located to one another in the same group or spread out. If a group’s bubbles are close to one another, then we can say its likely that the style invoked those emotions consistently across all viewers. 
+
+
 3.	Identify: Find categories, style, or face/body portraits that viewers deem as a positively/negatively invoking artwork.This is achieved the same way browse is achieved, except that the viz’s users will beforehand have a particular style/category that they will attempt to locate and identify. 
 
 <br />
