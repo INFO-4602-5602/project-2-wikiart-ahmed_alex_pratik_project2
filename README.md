@@ -23,7 +23,12 @@ Ahmed Al Hasani, Alex Costinescu, and Pratik Revankar
 <br />
 
 <h3>Negative vs. Positing Painting Scores</h3>
+The visualization “positive vs negative scores” is a bubble plot, where each bubble represents an artwork. The total positive and negatives scores are based on scores given for each column (e.g. love, sadness, happiness) by respondents. There are three ways to view how the scores vary which include:
+•	By Style
+•	By Category
+•	By “Face or body”
 
+Each selected option, the bubble’s colors will change to show how the bubbles are clustered for each option. The first and third option have 6 and 3 unique values, hence, its easy to visualize the clusters. The second option has 44 unique values, hence 44 clusters. This is difficult to visualize, but we added an interactive tool to help reading the plot which we will address below. For example, for the “face or body”, we can see that the face bubbles (artwork with faces) invoke stronger emotions, where users reported a total of positive/negative scores more than 1.0, whereas for body artwork, users reported weaker emotions. 
 <br />
 <br />
 
@@ -48,12 +53,7 @@ Ahmed Al Hasani, Alex Costinescu, and Pratik Revankar
 <br />
 
 <h3>Negative vs. Positing Painting Scores</h3>
-The visualization “positive vs negative scores” is a bubble plot, where each bubble represents an artwork. The total positive and negatives scores are based on scores given for each column (e.g. love, sadness, happiness) by respondents. There are three ways to view how the scores vary which include:
-•	By Style
-•	By Category
-•	By “Face or body”
 
-Each selected option, the bubble’s colors will change to show how the bubbles are clustered for each option. The first and third option have 6 and 3 unique values, hence, its easy to visualize the clusters. The second option has 44 unique values, hence 44 clusters. This is difficult to visualize, but we added an interactive tool to help reading the plot which we will address below. For example, for the “face or body”, we can see that the face bubbles (artwork with faces) invoke stronger emotions, where users reported a total of positive/negative scores more than 1.0, whereas for body artwork, users reported weaker emotions. 
 
 <br />
 <br />
