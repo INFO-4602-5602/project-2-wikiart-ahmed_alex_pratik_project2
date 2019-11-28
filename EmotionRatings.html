@@ -103,17 +103,6 @@
 				width: 100%;
 				color: #5086de;
 			}
-			.relatedWork {
-				width: 100%;
-				flex:1 1 auto;
-				min-height: 8rem;
-				margin-top: 2rem;
-				padding:1rem;
-				margin-left: auto;
-				margin-right: auto;
-				border: 1px solid lightgrey;
-				border-radius: 4px;
-			}
 
 			span {
 				cursor:pointer;
@@ -124,10 +113,6 @@
 				margin-left:auto;
     				margin-right:auto;
 				margin-top: 5%;
-			}
-			#meanRating {
-				font-weight: bold;
-				font-size: 18px;
 			}
 			table {
 				font-size: 15px;
@@ -158,10 +143,8 @@
 						<strong>Title: </strong>
 						<select id="selectPainting"></select>
 					</div>
-					<div class="relatedWork">
-						<p id="otherWork"></p>
-						<select id="similarPainting"></select>
-					</div>
+					<h3 id="otherWork"></h3>
+					<select id="similarPainting"></select>
 				</div>
 				<div class="image">
 					  <img id="artwork" src="">
@@ -173,22 +156,20 @@
 					<span><h3 id="artist"></h3></span>
 					<table class="artInfo">
 						<tr>
-						<td colspan='3'>Year :</td>
-						<td colspan='3' id="year" style="font-weight:bold"></td>
+							<td colspan='3'>Year :</td>
+							<td colspan='3' id="year" style="font-weight:bold"></td>
 						</tr>
 						<tr>
-						<td colspan='3'>Style :</td>
-						<td colspan='3' id="style"></td>
+							<td colspan='3'>Style :</td>
+							<td colspan='3' id="style"></td>
 						</tr>
 						<tr>
-						<td colspan='3'>Category :</td>
-						<td colspan='3' id="category"></td>
+							<td colspan='3'>Category :</td>
+							<td colspan='3' id="category"></td>
 						</tr>
-					</table>
-					<table>
 						<tr>
-						<td colspan='3' style="font-color:#333837">Mean Rating :</td>
-						<td colspan='3' id="meanRating"></td>
+							<td colspan='3'>Mean Rating :</td>
+							<td colspan='3' id="meanRating" style="font-weight:bold"></td>
 						</tr>
 					</table>
 				</div>
