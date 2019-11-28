@@ -97,7 +97,17 @@ Refining the visualization tool was restricted to the plot’s bubble and text s
 <br />
   
 <h3>Negative vs. Positing Painting Scores</h3>
+<p>The data wasn’t processed heavily. We summed up positive scores for positive columns and negative scores for negative columns. The positive and negative columns include:
 
+Positive: ['Gratitude', 'Happiness', 'Love', 'Humility', 'Trust', 'Optimism']
+Negative: ['Pessimism', 'Sadness', 'Shame', 'Anger', 'Arrogance', 'Disgust', 'Fear', 'Regret']
+
+In turn, we created two new columns, “total positive” and “total negative”. 
+
+Additionally, each “group” or cluster in each option, for instance, the “face” cluster and the “body” cluster in the third viewing option, is assigned a unique color. To create this, we imported various color palettes, and stored each unique color for each group in each option. Hence, each bubble (each unique data row) is assigned a color for each option, to visualize how these bubbles are clustered in each viewing option. 
+
+Hence the final dataset before creating the plot contains the positive and negative scores, three color columns (for each viewing option) and the title of the artwork so that it can be shown when the user hovers or taps a certain bubble. 
+</p>
 <br />
 <br />
 
