@@ -100,6 +100,8 @@ Refining the visualization tool was restricted to the plot’s bubble and text s
 <p>The data wasn’t processed heavily. We summed up positive scores for positive columns and negative scores for negative columns. The positive and negative columns include:
 
 Positive: ['Gratitude', 'Happiness', 'Love', 'Humility', 'Trust', 'Optimism']
+
+
 Negative: ['Pessimism', 'Sadness', 'Shame', 'Anger', 'Arrogance', 'Disgust', 'Fear', 'Regret']
 
 In turn, we created two new columns, “total positive” and “total negative”. 
