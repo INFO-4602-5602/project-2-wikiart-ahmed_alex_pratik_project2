@@ -143,7 +143,6 @@ Hence the final dataset before creating the plot contains the positive and negat
 <br />
 
 <h3>Negative vs. Positing Painting Scores</h3>
-There are several tasks that the tool allows its users to complete and they include:
 1.	Locate: Find a certain group. This is achieved by looking for certain clusters (using the legend and finding bubbles with the same colors), and to check/verify if that group exhibits a certain trait (if they have strong positive and negative emotions, or positive/negative emotions only).
 
 
