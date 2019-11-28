@@ -66,6 +66,17 @@ There are several tasks that the tool allows its users to complete and they incl
 <br />
 
 <h3>Negative vs. Positing Painting Scores</h3>
+The design process was simple and minimalistic for this visualization. Based on the question, to visualize how different categories behave, we knew that the best way to uncover the dataset to answer the question is by creating a scatter plot. The plot would simply have bubbles, and each of them would have a color to reflect which group it belongs to. If bubbles with the same color are close to each other, then it must mean that the group (The particular style, or category) might invoke the same feelings across all viewers. On the other hand, if the bubbles with the same colors are dispersed across the plot, then that group may not invoke consistent emotions across all viewers. 
+
+The focal point of the viz then is to focus on the colors, and which groups are represented by which color. Additionally, to switch between one option versus another, an interactive tool must be used, hence, the plot would include a select tool provided by Bokeh. 
+
+To create the visualization tool, we utilized Bokeh because it can take a dataset (dataframe) as an input, while enabling us to create a bubble graph easily and assign colors manually for each cluster. Bokeh provides many color palettes and plot tools to include, in addition to our knowledge and experience with Python, it was the best package to leverage to create the viz. 
+
+We filtered the dataset to the interested columns that are related to the questions we asked initially that guided our design and building process. The dataset then was converted to a ColumnDataSource Object, this is a necessary step for Bokeh to create interactive plots, because the tools incorporated will need to reference a data source to index correctly to the requested information by the viewer. 
+
+The hover tool will reference each bubble’s positive and negative scores, the title name, and the category it belongs to. The tap tool will reference the bubble’s group to mute other clusters. The select tool will reference the viewing option. This is possible because we created a dictionary that maps to the right ColumnDataSource object. The dictionary contains three entries, each entry’s key is the name of the viewing option, and the values are the ColumnDataSource objects. 
+
+Refining the visualization tool was restricted to the plot’s bubble and text size mainly. We tested different values to make sure the overall plot’s look was legible and visually appealing. 
 
 <br />
 <br />
