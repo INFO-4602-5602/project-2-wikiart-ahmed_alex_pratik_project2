@@ -11,12 +11,9 @@
 
 		<style>
 			body {
-				font-family: "Lucida Bright",Georgia,serif;
-				font-size: 11px;
 				font-weight: 300;
 				fill: #242424;
 				text-align: center;
-				text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
 				cursor: default;
 			}
 			.legend {
@@ -26,19 +23,19 @@
 			.tooltip {
 				fill: #333333;
 			}
-			#artwork {
+			#artwork
+			{
 				position:absolute;
-			  display: block;
-				margin-left: 3%;
-				margin-right: 3%;
-			  width: 386px;
-			  height: 288px;
+			  	display: block;
+				top:0;
+				left:0;
+				padding:5%;
+			  	width: 100%;
+			  	height: 100%;
 				object-fit: contain;
 				z-index: 2;
-
 				border: 1px solid #ddd;
-			  border-radius: 4px;
-			  padding: 5px;
+			  	border-radius: 4px;
 			}
 			#artwork:hover {
 			  box-shadow: 0 0 5px 3px rgb(255,215,0,0.5);
@@ -46,19 +43,18 @@
 			}
 			#artwork-border {
 				position:absolute;
-				margin-left: -15.4%;
-				margin-top: -1.8%;
-				width: 440px;
-			  height: 340px;
+				top:0;
+				left:0;
+				width: 100%;
+			  	height: 100%;
 				z-index: 1;
 			}
 			#loading {
 				position:absolute;
-				margin-left: 11.5%;
-				margin-top: 4.5%;
-			  display: block;
-			  width: 150px;
-			  height: 150px;
+				padding:5%;
+			  	display: block;
+			  	width: 100%;
+			  	height: 100%;
 				object-fit: contain;
 				z-index: 1;
 			}
@@ -68,15 +64,14 @@
 				width: 100%;
 				height: 305px;
 			}
-			.filters {
-				width: 33.33%;
-			}
-			.image {
-				width: 33.33%;
+			.filters,
+			.image,
+			.info
+			{
+				flex:1;
+				position:relative;
 			}
 			.info {
-				width: 33.33%;
-				width: 350px;
 				height: auto;
 				margin-left: auto;
 				margin-right: auto;
@@ -103,13 +98,13 @@
 			}
 
 			span {
-	      cursor:pointer;
-	      color:blue;
+				cursor:pointer;
+				color:blue;
 		 	}
 			#title {
 				width: 75%;
 				margin-left:auto;
-    		margin-right:auto;
+    				margin-right:auto;
 				margin-top: 5%;
 			}
 			#meanRating {
@@ -119,7 +114,7 @@
 			table {
 				font-size: 15px;
 				margin-left:auto;
-    		margin-right:auto;
+    				margin-right:auto;
 				text-align: left;
 			}
 			.artInfo td {
@@ -128,15 +123,13 @@
 			.rating h2 {
 				margin-bottom: -3%;
 			}
-
 		</style>
-
 	</head>
 	<body>
 		<header class="top-bar">
 			<a class="home-btn" href="index.html"><i class="fas fa-chevron-left"></i> Return Home</a>
 		</header>
-		<div style="padding-top:5rem;">
+		<div style="padding:5rem 2rem 3rem; width:100%;">
 			<div class="painting" style="display:flex">
 				<div class="filters">
 					<table>
