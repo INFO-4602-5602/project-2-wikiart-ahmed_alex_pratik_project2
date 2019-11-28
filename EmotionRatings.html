@@ -141,6 +141,10 @@
 			.rating h2 {
 				margin-bottom: -3%;
 			}
+			.rating--column
+			{
+				flex:1;
+			}
 		</style>
 	</head>
 	<body>
@@ -191,15 +195,15 @@
 			</div>
 
 			<div class="rating" style="display:flex">
-				<div>
+				<div class="rating--column">
 					<h2>Positive</h2>
 					<div class="postiveRating"></div>
 				</div>
-				<div>
+				<div class="rating--column">
 					<h2>Negative</h2>
 					<div class="negativeRating"></div>
 				</div>
-				<div>
+				<div class="rating--column">
 					<h2>Other or Mixed</h2>
 					<div class="otherRating"></div>
 				</div>
