@@ -83,7 +83,9 @@ Refining the visualization tool was restricted to the plot’s bubble and text s
 <br />
 
 <h3>Negative vs. Positing Painting Scores</h3>
-
+<p>
+ Bubbles in the scatter plot represent each artwork in the dataset. Its position along the x-axis will reflect the sum total of positive emotions viewers reported, whereas its position along the y-axis will reflect how the magnitude of negative emotions viewers reported. The colors of bubbles reflect a group. Bubbles with the same colors are in the same group/cluster. When the user changes the category that is being viewed in the viz, the colors change to reflect the groups in that category. 
+ </p>
 <br />
 <br />
 
